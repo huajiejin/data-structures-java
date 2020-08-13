@@ -15,7 +15,12 @@ This connection helps to traverse a linear data structure in a single level and 
 Such data structures are easy to implement as computer memory is also sequential.
 
 - Array
+  1. The capacity cannot be modified after creation, so we may need a dynamic array.
+  - DynamicArray
+    1. Expansion may waste memory, linked list can solve it.
 - Linked List
+  1. The elements are not stored at contiguous memory locations.
+  2. A linked list consists of nodes where each node contains a data field and a reference to the next node in the list.
 - Stack
 - Queue
 - Hashing
