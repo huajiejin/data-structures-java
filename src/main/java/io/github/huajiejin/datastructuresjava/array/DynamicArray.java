@@ -2,8 +2,10 @@ package io.github.huajiejin.datastructuresjava.array;
 
 import io.github.huajiejin.datastructuresjava.AbstractList;
 
+import java.util.RandomAccess;
+
 // ArrayList
-public class DynamicArray<E> extends AbstractList<E> {
+public class DynamicArray<E> extends AbstractList<E> implements RandomAccess {
     private static final int DEFAULT_CAPACITY = 10;
 
     private E[] elements;
