@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
 import io.github.huajiejin.datastructuresjava.linkedlist.LinkedList;
-import io.github.huajiejin.datastructuresjava.linkedlist.LinkedListWithVirtualHead;
+import io.github.huajiejin.datastructuresjava.linkedlist.DoublyLinkedListWithVirtualNode;
 import org.junit.Test;
 
 public class ListTest {
@@ -15,7 +15,7 @@ public class ListTest {
         List<Integer> list2 = new DynamicArray<>(1);
         List<Integer> list3 = new DynamicArray<>(0);
         List<Integer> list4 = new LinkedList<>();
-        List<Integer> list5 = new LinkedListWithVirtualHead<>();
+        List<Integer> list5 = new DoublyLinkedListWithVirtualNode<>();
         testInterfaces(list1);
         testInterfaces(list2);
         testInterfaces(list3);

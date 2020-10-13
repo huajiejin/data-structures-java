@@ -19,8 +19,11 @@ Such data structures are easy to implement as computer memory is also sequential
   - DynamicArray
     1. Expansion may waste memory, linked list can solve it.
 - Linked List
-  1. The elements are not stored at contiguous memory locations.
+  1. The elements are not store at contiguous memory locations.
   2. A linked list consists of nodes where each node contains a data field and a reference to the next node in the list.
+  - Doubly Linked List
+    1. A linked list where each node contains a reference to the prev node.
+    2. Had a better performance than singly linked list when find node by an index.
 - Stack
 - Queue
 - Hashing
