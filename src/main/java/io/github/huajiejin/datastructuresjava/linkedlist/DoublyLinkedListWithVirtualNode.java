@@ -14,7 +14,7 @@ public class DoublyLinkedListWithVirtualNode<E> extends AbstractList<E> {
     @Override
     public void insertAt(int index, E element) {
         rangeCheckForInsert(index);
-        Node<E> prevNode = findNodeByIndex(index-1);
+        Node<E> prevNode = index == 0 ? firstVirtualNode : findNodeByIndex(index-1);
         Node<E> nextNode = prevNode.next;
         prevNode.next = new Node(prevNode, element, nextNode);
         nextNode.prev = prevNode.next;
@@ -24,7 +24,7 @@ public class DoublyLinkedListWithVirtualNode<E> extends AbstractList<E> {
     @Override
     public void remove(int index) {
         rangeCheck(index);
-        Node<E> prevNode = findNodeByIndex(index-1);
+        Node<E> prevNode = index == 0 ? firstVirtualNode : findNodeByIndex(index-1);
         prevNode.next = prevNode.next.next;
         prevNode.next.prev = prevNode;
         size--;
@@ -82,13 +82,7 @@ public class DoublyLinkedListWithVirtualNode<E> extends AbstractList<E> {
 
     private Node<E> findNodeByIndex(int index) {
         Node<E> node;
-        if (index == -1) {
-            return firstVirtualNode;
-        }
-        else if (index == size) {
-            return lastVirtualNode;
-        }
-        else if (index < (size >> 1)) {
+        if (index < (size >> 1)) {
             // start from 0
             node = firstVirtualNode.next;
             for (int i=0; i<index; i++) {
