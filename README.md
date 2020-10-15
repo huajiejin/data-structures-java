@@ -26,6 +26,9 @@ Such data structures are easy to implement as computer memory is also sequential
     2. Had a better performance than singly linked list when find node by an index.
   - (Singly / Doubly) Circular Linked List
 - Stack
+  1. First In Last Out
+  2. interface: push pop peek
+  3. use case: redo undo
 - Queue
 - Hashing
 
