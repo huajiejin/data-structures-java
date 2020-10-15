@@ -8,16 +8,33 @@ import java.util.Stack;
 public class _234PalindromeLinkedList {
 
     public static void main(String[] args) {
-        ListNode l = ListNode.buildFrom(new int[]{1, 1, 2, 1});
-        _234PalindromeLinkedList palindromeLinkedList = new _234PalindromeLinkedList();
-        System.out.println(palindromeLinkedList.isPalindrome(l));
-        ListNode.println(l);
+        _234PalindromeLinkedList instance = new _234PalindromeLinkedList();
+        System.out.println(instance.s4(ListNode.buildFrom(new int[]{1, 1, 2, 1, 1})));
+        System.out.println(instance.s4(ListNode.buildFrom(new int[]{1, 1, 2, 1})));
+        System.out.println(instance.s4(ListNode.buildFrom(new int[]{1, 2, 1})));
+        System.out.println(instance.s4(ListNode.buildFrom(new int[]{1, 2})));
+        System.out.println(instance.s4(ListNode.buildFrom(new int[]{1})));
     }
 
     public boolean isPalindrome(ListNode head) {
         // return s1(head);
         // return s2(head);
-        return s3(head);
+        // return s3(head);
+        return s4(head);
+    }
+
+    public boolean s4(ListNode head) {
+        if (head == null) return true;
+
+        ListNode slow = head, fast = head;
+        for (; slow != null && fast != null && fast.next != null; slow = slow.next, fast = fast.next.next);
+
+        ListNode secondHalfReversedNode = reverse(slow);
+        for (; secondHalfReversedNode != null && head != null; secondHalfReversedNode = secondHalfReversedNode.next, head = head.next) {
+            if (secondHalfReversedNode.val != head.val) return false;
+        }
+
+        return true;
     }
 
     public boolean s3(ListNode head) {
@@ -35,7 +52,7 @@ public class _234PalindromeLinkedList {
             prev = head;
             head = next;
         }
-        ListNode FirstHalfReversedHead = prev;
+        ListNode firstHalfReversedHead = prev;
         ListNode secondHalfHead = head;
 
         // remove if there is a node in the middle of the list
@@ -44,8 +61,8 @@ public class _234PalindromeLinkedList {
         }
 
         // compare
-        for (; FirstHalfReversedHead != null && secondHalfHead != null; FirstHalfReversedHead = FirstHalfReversedHead.next, secondHalfHead = secondHalfHead.next) {
-            if (FirstHalfReversedHead.val != secondHalfHead.val) return false;
+        for (; firstHalfReversedHead != null && secondHalfHead != null; firstHalfReversedHead = firstHalfReversedHead.next, secondHalfHead = secondHalfHead.next) {
+            if (firstHalfReversedHead.val != secondHalfHead.val) return false;
         }
 
         return true;
