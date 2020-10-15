@@ -1,14 +1,13 @@
 package io.github.huajiejin.leetcode.linkedlist;
 
-import io.github.huajiejin.datastructuresjava.List;
 import io.github.huajiejin.leetcode.util.ListNode;
 
 import java.util.Stack;
 
-public class _234PalindromeLinkedList {
+public class _234_E_PalindromeLinkedList {
 
     public static void main(String[] args) {
-        _234PalindromeLinkedList instance = new _234PalindromeLinkedList();
+        _234_E_PalindromeLinkedList instance = new _234_E_PalindromeLinkedList();
         System.out.println(instance.s4(ListNode.buildFrom(new int[]{1, 1, 2, 1, 1})));
         System.out.println(instance.s4(ListNode.buildFrom(new int[]{1, 1, 2, 1})));
         System.out.println(instance.s4(ListNode.buildFrom(new int[]{1, 2, 1})));
