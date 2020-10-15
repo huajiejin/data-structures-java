@@ -24,6 +24,7 @@ Such data structures are easy to implement as computer memory is also sequential
   - Doubly Linked List
     1. A linked list where each node contains a reference to the prev node.
     2. Had a better performance than singly linked list when find node by an index.
+  - (Singly / Doubly) Circular Linked List
 - Stack
 - Queue
 - Hashing
