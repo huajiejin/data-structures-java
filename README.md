@@ -30,6 +30,11 @@ Such data structures are easy to implement as computer memory is also sequential
   2. interface: push pop peek
   3. use case: redo undo
 - Queue
+  1. First In First Out
+  2. interface: enQueue deQueue front
+  3. use case: 
+  - It's better to implement it with a doubly linked list.
+  - Queue is an interface in java util, implements by LinkedList.
 - Hashing
 
 ### Non-linear Data Structures
