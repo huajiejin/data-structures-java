@@ -68,6 +68,20 @@ public class DoublyLinkedListWithVirtualNode<E> extends AbstractList<E> {
         size = 0;
     }
 
+    public E getLast() {
+        Node<E> prev = lastVirtualNode.prev;
+        return prev.equals(firstVirtualNode) ? null : prev.element;
+    }
+
+    public void remove(E last) {
+        Node<E> cur = firstVirtualNode.next;
+        while (!cur.equals(lastVirtualNode)) {
+            cur.prev.next = cur.next;
+            cur.next.prev = cur.prev;
+            cur = cur.next;
+        }
+    }
+
     private static class Node<E> {
         Node<E> prev;
         E element;
