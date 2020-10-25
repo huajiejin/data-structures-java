@@ -33,8 +33,9 @@ Such data structures are easy to implement as computer memory is also sequential
   1. First In First Out
   2. interface: enQueue deQueue front
   3. use case: 
-  - It's better to implement it with a doubly linked list.
-  - Queue is an interface in java util, implements by LinkedList.
+      - It's better to implement it with a doubly linked list.
+      - Queue is an interface in java util, implements by LinkedList.
+  4. Circle Queue: front + array
 - Hashing
 
 ### Non-linear Data Structures

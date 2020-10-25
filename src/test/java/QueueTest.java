@@ -1,5 +1,6 @@
 import io.github.huajiejin.datastructuresjava.queue.Queue;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 public class QueueTest {
@@ -13,4 +14,5 @@ public class QueueTest {
         assertEquals("deQueue should return 2", 2, (int) q.deQueue());
         assertEquals("deQueue should remove 2", 1, (int) q.front());
     }
+
 }
