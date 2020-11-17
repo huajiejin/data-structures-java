@@ -3,6 +3,7 @@ import io.github.huajiejin.datastructuresjava.tree.BinarySearchTree;
 import io.github.huajiejin.datastructuresjava.tree.BinarySearchTreeImpl;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 
@@ -19,6 +20,17 @@ public class TreeTest {
         BinarySearchTreeImpl.postOrderTraversal(bst1);
         System.out.println("levelOrderTraversal");
         BinarySearchTreeImpl.levelOrderTraversal(bst1);
+    }
+
+    @Test
+    public void getHeight() {
+        BinarySearchTreeImpl<Integer> bst1 = new BinarySearchTreeImpl<>();
+        add(bst1, new Integer[]{1,3});
+        assertEquals("1,3", 2, BinarySearchTreeImpl.getHeight(bst1));
+        add(bst1, new Integer[]{5,2,10,6,4,8});
+        assertEquals("1,3,5,2,10,6,4,8", 6, BinarySearchTreeImpl.getHeight(bst1));
+        add(bst1, new Integer[]{11,12,13});
+        assertEquals("1,3,5,2,10,6,4,8,11,12,13", 7, BinarySearchTreeImpl.getHeight(bst1));
     }
 
     private <E extends Comparable> void add(BinarySearchTree<E> bst, E[] arr) {

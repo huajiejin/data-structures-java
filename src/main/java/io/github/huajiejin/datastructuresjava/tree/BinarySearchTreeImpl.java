@@ -148,4 +148,23 @@ public class BinarySearchTreeImpl<E> implements BinarySearchTree<E> {
             if (root.right != null) q.add(root.right);
         }
     }
+
+    public static <E> int getHeight(BinarySearchTreeImpl<E> tree) {
+        if (tree == null || tree.root == null) return 0;
+        int height = 0;
+        int rowCount = 1;
+        Queue<Node<E>> q = new LinkedList<>();
+        q.add(tree.root);
+        while (!q.isEmpty()) {
+            Node<E> root = q.poll();
+            rowCount--;
+            if (root.left != null) q.add(root.left);
+            if (root.right != null) q.add(root.right);
+            if (rowCount == 0) {
+                rowCount = q.size();
+                height++;
+            }
+        }
+        return height;
+    }
 }
