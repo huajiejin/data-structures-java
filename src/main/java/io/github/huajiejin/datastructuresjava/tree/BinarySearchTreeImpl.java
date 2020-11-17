@@ -167,4 +167,38 @@ public class BinarySearchTreeImpl<E> implements BinarySearchTree<E> {
         }
         return height;
     }
+
+    public static <E> boolean isComplete(BinarySearchTreeImpl<E> tree) {
+        if (tree == null || tree.getRoot() == null) return false;
+
+        Queue<Node<E>> q = new LinkedList<>();
+        q.add(tree.root);
+        boolean nonLeaf = false;
+
+        while (!q.isEmpty()) {
+            Node<E> node = q.poll();
+            if (nonLeaf && BinarySearchTreeImpl.hasLeaf(node)) return false;
+
+            if (node.left != null) {
+                q.offer(node.left);
+            } else if (node.right != null) {
+                return false;
+            } else {
+                nonLeaf = true;
+            }
+
+            if (node.right != null) {
+                q.offer(node.right);
+            } else {
+                nonLeaf = true;
+            }
+        }
+
+        return true;
+    }
+
+    private static <E> boolean hasLeaf(Node<E> node) {
+        if (node == null) return true;
+        return node.left != null || node.right != null;
+    }
 }

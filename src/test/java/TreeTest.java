@@ -33,6 +33,17 @@ public class TreeTest {
         assertEquals("1,3,5,2,10,6,4,8,11,12,13", 7, BinarySearchTreeImpl.getHeight(bst1));
     }
 
+    @Test
+    public void isComplete() {
+        BinarySearchTreeImpl<Integer> bst1 = new BinarySearchTreeImpl<>();
+        add(bst1, new Integer[]{5,3,9,2,4,7});
+        assertEquals("5,3,9,2,4,7", true, BinarySearchTreeImpl.isComplete(bst1));
+        add(bst1, new Integer[]{1});
+        assertEquals("5,3,9,2,4,7,1", false, BinarySearchTreeImpl.isComplete(bst1));
+        add(bst1, new Integer[]{10});
+        assertEquals("5,3,9,2,4,7,1,10", true, BinarySearchTreeImpl.isComplete(bst1));
+    }
+
     private <E extends Comparable> void add(BinarySearchTree<E> bst, E[] arr) {
         for (int i=0; i<arr.length; i++) {
             bst.add(arr[i]);
